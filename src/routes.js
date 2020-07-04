@@ -122,6 +122,9 @@ router.post(
     fs.writeFile("stores.json", storesJson, finished);
 
     function finished(err) {
+      req.flash("success", "Shop added");
+      res.redirect("/addmenu");
+
       reply = {
         store: data.store,
         zipcode: data.zipcode,
@@ -131,9 +134,6 @@ router.post(
       };
       //  response.send(reply);
     }
-
-    req.flash("success", "Shop added");
-    res.redirect("/");
   }
 );
 
@@ -187,7 +187,12 @@ router.post(
     fs.writeFile("menus.json", menusJson, finished);
 
     function finished(err) {
-      //console.log("all set.");
+      req.flash(
+        "success",
+        `item added. You can add more on this page or visit your menu <a href='/store/${req.body.store}'>here</a>`
+      );
+      res.redirect("/addmenu");
+
       reply = {
         storeid: req.body.store,
         name: req.body.name,
@@ -197,12 +202,6 @@ router.post(
       };
       //  response.send(reply);
     }
-
-    req.flash(
-      "success",
-      `item added. You can add more on this page or visit your menu <a href='/store/${req.body.store}'>here</a>`
-    );
-    res.redirect("/addmenu");
   }
 );
 

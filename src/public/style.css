@@ -13,23 +13,27 @@ body {
   background: #fff;
   font-family: -apple-system, "Segoe UI", sans-serif;
 }
+section {
+  width: 100%;
+  max-width: 1140px;
+}
 h1 {
+  font-size: 2.1em;
 }
 h2 {
-  font-size: 35px;
-  padding: 50px 0;
+  font-size: 1.8em;
+  padding: 2em 0;
   text-align: center;
   margin: 0 0 1em;
 }
 
 .form-header {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 }
 form {
   width: 100%;
-  width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   padding: 20px;
   background: #f8f8f8;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -166,6 +170,7 @@ table th {
 #admin a {
   display: block;
   padding: 20px;
+  text-align: center;
 }
 
 .banner {
@@ -174,4 +179,17 @@ table th {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    width: 100%;
+  }
+  #stores-listing img {
+    max-width: 100%;
+  }
+  .form-header,
+  form {
+    max-width: inherit;
+  }
 }
