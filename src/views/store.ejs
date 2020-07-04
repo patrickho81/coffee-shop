@@ -1,0 +1,21 @@
+<h2><%=storeName%></h2>
+<section>
+  <table class="table responsive" id="menu">
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% storeMenu.forEach(function(menu) { %>
+      <tr>
+        <td class="item-name">
+          <%=menu.name%>
+        </td>
+        <td class="item-price">$<%=menu.price%></td>
+      </tr>
+      <% })%>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,22 @@
+[
+  {
+    "storeid": 1,
+    "name": "coffee",
+    "price": "10.01"
+  },
+  {
+    "storeid": 1,
+    "name": "hot coco",
+    "price": "12.01"
+  },
+  {
+    "storeid": 2,
+    "name": "Cappuccino",
+    "price": "5"
+  },
+  {
+    "storeid": 2,
+    "name": "Cake",
+    "price": "10"
+  }
+]

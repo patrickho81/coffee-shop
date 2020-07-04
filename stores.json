@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Number 1 coffee shop",
+    "zipcode": "12345",
+    "status": "open",
+    "image": "coffee.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Number 2 Best Shop",
+    "zipcode": "11111",
+    "status": "closed",
+    "image": "coffee.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Number 3",
+    "zipcode": "22222",
+    "status": "closed",
+    "image": "coffee.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Number 4",
+    "zipcode": "22222",
+    "status": "closed",
+    "image": "coffee.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Store #5",
+    "zipcode": "12391",
+    "status": "open",
+    "image": "coffee.jpg"
+  }
+]

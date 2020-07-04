@@ -1,0 +1,67 @@
+<div class="form-header">
+  <% if (Object.keys(errors).length === 0) { %>
+  <h2>Select your store and add a menu item</h2>
+  <% } else { %>
+  <h2 class="errors-heading">Oops, please correct the following:</h2>
+  <ul class="errors-list">
+    <% Object.values(errors).forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+</div>
+
+<form method="post" action="/addmenu" novalidate enctype="multipart/form-data">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+  <div class="form-field <%= errors.store ? 'form-field-invalid' : '' %>">
+    <label for="store">Store*</label>
+
+    <select id="store-dropdown" name="store">
+      <% stores.forEach(function(store) { %>
+      <option value="<%=store.id%>"><%=store.name%></option>
+      <% })%>
+    </select>
+  </div>
+  <% if (errors.store) { %>
+  <div class="error"><%= errors.store.msg %></div>
+  <% } %>
+
+  <div class="form-field <%= errors.name ? 'form-field-invalid' : '' %>">
+    <label for="name">Item name*</label>
+    <input
+      class="input"
+      id="name"
+      name="name"
+      type="text"
+      value="<%= data.name %>"
+    />
+    <% if (errors.name) { %>
+    <div class="error"><%= errors.name.msg %></div>
+    <% } %>
+  </div>
+
+  <div class="form-field <%= errors.price ? 'form-field-invalid' : '' %>">
+    <label for="price">Price*</label>
+    <div class="flex flex-row">
+      <span>$</span
+      ><input
+        class="input"
+        id="price"
+        name="price"
+        type="text"
+        value="<%= data.price %>"
+      />
+    </div>
+    <% if (errors.price) { %>
+    <div class="error"><%= errors.price.msg %></div>
+    <% } %>
+  </div>
+  <div class="form-actions">
+    <button class="btn" type="submit">Add</button>
+  </div>
+</form>
+
+<% if (messages.success) { %>
+<div class="flash flash-success"><%- messages.success %></div>
+<% } %>

@@ -1,0 +1,61 @@
+<div class="form-header">
+  <% if (Object.keys(errors).length === 0) { %>
+  <h2>Add a new store to our list</h2>
+  <% } else { %>
+  <h2 class="errors-heading">Oops, please correct the following:</h2>
+  <ul class="errors-list">
+    <% Object.values(errors).forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } %>
+</div>
+
+<form method="post" action="/addstore" novalidate enctype="multipart/form-data">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+  <div class="form-field <%= errors.store ? 'form-field-invalid' : '' %>">
+    <label for="store">Store Name*</label>
+    <input
+      class="input"
+      id="store"
+      name="store"
+      type="text"
+      value="<%= data.store %>"
+    />
+    <% if (errors.message) { %>
+    <div class="error"><%= errors.message.msg %></div>
+    <% } %>
+  </div>
+  <div class="form-field <%= errors.zipcode ? 'form-field-invalid' : '' %>">
+    <label for="zipcode">Zip Code* (5 digits)</label>
+    <input
+      class="input"
+      id="zipcode"
+      name="zipcode"
+      type="text"
+      value="<%= data.zipcode %>"
+    />
+    <% if (errors.zipcode) { %>
+    <div class="error"><%= errors.zipcode.msg %></div>
+    <% } %>
+  </div>
+  <div class="form-field <%= errors.status ? 'form-field-invalid' : '' %>">
+    <label for="status">status*</label>
+    <select id="store-dropdown" name="status">
+      <option value="open">open</option>
+      <option value="closed">closed</option>
+    </select>
+    <% if (errors.status) { %>
+    <div class="error"><%= errors.status.msg %></div>
+    <% } %>
+  </div>
+
+  <div class="form-field">
+    <label for="image">Store Logo (optional to use default)</label>
+    <input class="input" id="image" name="image" type="file" />
+  </div>
+  <div class="form-actions">
+    <button class="btn" type="submit">Submit</button>
+  </div>
+</form>

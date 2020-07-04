@@ -1,0 +1,28 @@
+<section>
+  <table class="table responsive" id="stores-listing">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Store Name</th>
+        <th>Zip Code</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% stores.forEach(function(store) { %>
+      <tr>
+        <td><img src="/uploads/<%=store.image%>" /></td>
+        <td class="store-name">
+          <a href="/store/<%=store.id%>"><%=store.name%></a>
+        </td>
+        <td class="store-zipcode"><%=store.zipcode%></td>
+        <td class="store-status"><%=store.status%></td>
+      </tr>
+      <% })%>
+    </tbody>
+  </table>
+</section>
+
+<% if (messages.success) { %>
+<div class="flash flash-success"><%= messages.success %></div>
+<% } %>
